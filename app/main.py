@@ -9,8 +9,13 @@ app = flask.Flask(__name__, template_folder='./')
 
 fileDir = os.path.dirname(os.path.realpath('__file__'))
 
-with open(f"app\deploy\decissiontreemodel.pkl", 'rb') as f:
+fileName = "app/deploy/decissiontreemodel.pkl"
+
+filePath = os.path.join(fileDir, fileName)
+
+with open(filePath, 'rb') as f:
         model = pickle.load(f)
+
 
 @app.route('/', methods=['GET', 'POST'])
 def main():
