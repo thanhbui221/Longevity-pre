@@ -5,69 +5,128 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Longevity Prediciton</title>
+    
 </head>
 <body>
 
-<form action="{{ url_for('main') }}" method="POST">
-    <fieldset>
-        <legend>Input values:</legend>
-        Education (1-Under Bachelor, 2-Bachelor, 3-Above Bachelor) :
+    <form action="{{ url_for('main') }}" method="POST">
+        <div class="item item-1"><label>Education (1-Under Bachelor, 2-Bachelor, 3-Above Bachelor): </label>
         <input name="Education" type="number" required>
-        <br>
-        <br> 
-        Sex(1-Female, 0-Male):
+        </div>
+        <div class="item item-2"><label>Sex(1-Female, 0-Male):</label>
         <input name="Sex" type="number" required>
-        <br>
-        <br> 
-        Age:
+        </div>
+        <div class="item item-3"><label>Age:</label>
         <input name="Age" type="number" required>
-        <br>
-        <br> 
-        Sport(1-if yes, 0-if no):
+        </div>
+        <div class="item item-4"><label>Sport(1-if yes, 0-if no):</label>
         <input name="Sport" type="number" required>
-        <br>
-        <br> 
-        Children member:
+        </div>
+        <div class="item item-5"><label>Children member(s):</label>
         <input name="Children" type="number" required>
-        <br>
-        <br> 
-        Pet member:
+        </div>
+        <div class="item item-6"><label>Pet member(s):</label>
         <input name="Pet" type="number" required>
-        <br>
-        <br> 
-        <br> 
-        <button type="submit" value="Submit">Decission Tree Model</button>
-    </fieldset>
-</form>
-<br>
-<div class="result" align="center">
-    {% if original_input %}
-        {% for variable, value in original_input.items() %}
-            <b>{{ variable }}</b> : {{ value }}
-        {% endfor %}
-        <br>
-        <br> Predicted Longevity is:
-            {% if result == 1 %}
-                <p style="font-size:50px">You're gonna live up to 90 years old</p>
-            {% else %}
-                <p style="font-size:50px">You wont live up to 90 years old</p>
-            {% endif %}
-    {% endif %}
-</div>
-</html>
+        </div>
+        <div class="item item-7">
+        <button value="Submit">Decission Tree Model</button></div>
+    </form>
+    <br>
+
+    <div class="result" align="center">
+        <div>{% if original_input %}
+            {% for variable, value in original_input.items() %}
+                <b>{{ variable }}</b> : {{ value }}
+            {% endfor %}</div>
+            
+            <div> Predicted Longevity is:
+                {% if result == 1 %}
+                    <p style="font-size:50px">You're gonna live up to 90 years old</p>
+                {% else %}
+                    <p style="font-size:50px">You wont live up to 90 years old</p>
+                {% endif %}
+        {% endif %}</div>
+    </div>
+
     
 </body>
+
 <style>
+:root {
+    --blue: #ADD8E6;
+    --black: #272727;
+    /* --yellow: #ffc600; */
+  }
+  
+  html {
+    /* border-box box model allows us to add padding and border to our elements without increasing their size */
+    box-sizing: border-box;
+    /* A system font stack so things load nice and quick! */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+      Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-weight: 900;
+    font-size: 20px;
+    color: var(--black);
+    text-shadow: 0 2px 0 rgba(0, 0, 0, 0.07);
+  }
+
+  *,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+    background-image: url("./topography.svg"),
+      linear-gradient(110deg, var(--blue), #2f6ae0);
+    background-size: 340px, auto;
+    min-height: calc(100vh - 100px);
+    margin: 50px;
+    /* background: white; */
+    background-attachment: fixed;
+    letter-spacing: -1px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+  }
+
 form {
-    margin: auto;
-    width: 35%;
+   display: grid;
+   grid-gap: 10px;
+   justify-content: center;
+
 }
 .result {
-    margin: auto;
-    width: 35%;
-    border: 1px solid #ccc;
+    display: grid;
 }
+
+.item {
+    display: grid;
+    grid-template-columns: 600px 100px;
+
+}
+
+.item-7{
+    display: grid;
+    grid-template-columns: 100px;
+    justify-content: center;
+    
+}
+
+.button{
+    display: grid;
+    border: 5px solid rgba(0, 0, 0, 0.03);
+    border-radius: 3px;
+    font-size: 35px;
+    /* background-color: var(--yellow); best colour */
+}
+
+.label, .input{
+    display: grid;
+}
+
 </style>
+
 
 
 
