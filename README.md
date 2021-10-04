@@ -67,7 +67,8 @@ The datasets provide the following information (object attributes) about the eld
 <!-- GETTING STARTED -->
 ## Getting Started
 
-Demo: 
+Demo: https://long-pre.herokuapp.com/
+
 
 The data is first 'purified.' Then I'll be able to train the model and forecast the desired solution. 
 There are more than 60 predictive modeling methods available. 
@@ -88,8 +89,6 @@ We can reduce the number of models to the following using these two approaches (
 After testing all the above models, the Decision Tree Model is the best option.
 
 ### Prerequisites
-
-Demo: https://long-pre.herokuapp.com/
 
 
 ### Installation
